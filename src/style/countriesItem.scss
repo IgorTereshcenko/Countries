@@ -1,0 +1,21 @@
+.countriesItem {
+    background: hsl(209, 23%, 22%);
+    width: 230px;
+    min-height: 260px;
+    &__flag {
+        width: 100%;
+        height: 140px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+    }
+    &__descr {
+        padding: 20px 15px;
+    }
+    &__name {
+        padding-bottom: 15px;
+    }
+}
