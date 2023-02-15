@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { countriesAPI } from "../services/CountriesService";
+import themeReducer from '../store/slices/themeSlice';
 
 const rootReducer = combineReducers({
+    themeReducer,
     [countriesAPI.reducerPath]: countriesAPI.reducer
 })
 

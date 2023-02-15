@@ -5,7 +5,7 @@ export const useSortCountries = (countries:ICountries[], sort:string):ICountries
 
     const sortedCountries = useMemo(() => {
     
-        if(sort && sort != 'All') {
+        if(sort && sort !== 'All') {
             return [...countries].filter(country => country.region === sort);
         } else {
             return countries;
@@ -22,7 +22,7 @@ export const useCountries = (countries:ICountries[], sort:string, query: string)
 
     const sortedAndSearhCountries = useMemo(() => {
         return sortedCountries.filter(country => country.name.toLowerCase().includes(query))
-    },[countries,sort,query])
+    },[sortedCountries,query])
 
     return sortedAndSearhCountries;
 }

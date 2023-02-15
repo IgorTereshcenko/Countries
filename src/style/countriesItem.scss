@@ -1,7 +1,8 @@
 .countriesItem {
-    background: hsl(209, 23%, 22%);
     width: 230px;
     min-height: 260px;
+    box-shadow: var(--shadow);
+    background-color: var(--colors-ui-base);
     &__flag {
         width: 100%;
         height: 140px;
@@ -17,5 +18,9 @@
     }
     &__name {
         padding-bottom: 15px;
+        font-weight: 800;
+    }
+    &__population,&__region,&__capital {
+        font-size: 14px;
     }
 }

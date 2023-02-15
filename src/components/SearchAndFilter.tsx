@@ -1,12 +1,16 @@
 import React, { FC } from 'react'
-import { RegionFilter } from '../pages/Countries';
+import '../style/searchAndFilter.scss';
 
 interface SearchAndFilterProps {
     searchValue: string;
     sortValue:string;
     setSortValue: (e:React.ChangeEvent<HTMLSelectElement>) => void;
     setSearchValue: (e:React.ChangeEvent<HTMLInputElement>) => void;
-    regionFilter: RegionFilter[];
+}
+
+interface RegionFilter {
+    value:string;
+    name:string;
 }
 
 const SearchAndFilter:FC<SearchAndFilterProps> = ({
@@ -14,8 +18,15 @@ const SearchAndFilter:FC<SearchAndFilterProps> = ({
     setSearchValue,
     sortValue,
     setSortValue,
-    regionFilter
 }) => {
+
+    const regionFilter:RegionFilter[] = [
+        {value: 'All', name: 'Все'},
+        {value: 'Africa', name: 'Африка'},
+        {value: 'Americas', name: 'Америка'},
+        {value: 'Asia', name: 'Азия'},
+        {value: 'Oceania', name: 'Океания'},
+    ]
 
     return (
         <div className='searchAndFilter'>
@@ -28,7 +39,8 @@ const SearchAndFilter:FC<SearchAndFilterProps> = ({
 
             <select
                 value={sortValue}
-                onChange={setSortValue}>   
+                onChange={setSortValue}
+                className='searchAndFilter__sort'>   
                 {regionFilter.map(reg =>
                     <option value={reg.value} key={reg.value}>
                         {reg.name}
