@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-
 import { countriesAPI } from '../services/CountriesService';
 
 const CountriesName = () => {
@@ -8,9 +7,17 @@ const CountriesName = () => {
     const {name} = useParams();
     const navigate = useNavigate();
     const {data:country=[], isLoading, error} = countriesAPI.useFetchNameCountriesQuery(name);
-    const borderCountry = country?.map(item => item.borders.map(b => b)).join(',')
-    const {data:bord} = countriesAPI.useFetchFilterByCodeQuery(borderCountry);
-
+    const [borders, setBorders] = useState('');
+    const {data: borderCountry=[]} = countriesAPI.useFetchFilterByCodeQuery(borders);
+    
+    useEffect(() => {
+        country.map(item => {
+            if(item.borders) {
+                setBorders(item.borders.join(','));
+            }
+        })
+    },[country])
+    
     if(isLoading) {
         return <h1>loading</h1>
     } else if (error) {
@@ -19,7 +26,7 @@ const CountriesName = () => {
 
     return (
         <div className='countriesName'>
-            {country?.map(item =>
+            {country.map(item =>
                 <div className="countriesName__wrapper">
                     <div className="countriesName__flag">
                         <img src={item.flag} alt="flag" />
@@ -47,8 +54,9 @@ const CountriesName = () => {
                             )}
                         </div>
 
-                        <div className="countriesName__borders">
-                            {bord?.map(b =>
+                       <div className="countriesName__borders">
+                            {!borderCountry.length ? <h3>no border country</h3>
+                            :borderCountry.map(b =>
                                 <span onClick={() => navigate(`/name/${b.name}`)}>{b.name} </span>   
                             )}
                         </div>

@@ -26,6 +26,7 @@ const SearchAndFilter:FC<SearchAndFilterProps> = ({
         {value: 'Americas', name: 'Америка'},
         {value: 'Asia', name: 'Азия'},
         {value: 'Oceania', name: 'Океания'},
+        {value: 'Europe', name: 'Европа'},
     ]
 
     return (
