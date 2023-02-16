@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
-import { IBorderCountrieststs } from "../types/IBorderCountries";
+import { IBorderCountries } from "../types/IBorderCountries";
 import { ICountries } from "../types/ICountries";
 import { ICountry } from "../types/ICountry";
 
@@ -17,7 +17,7 @@ export const countriesAPI = createApi({
                 url: `/name/${name}`
             })
         }),
-        fetchFilterByCode: build.query<IBorderCountrieststs[],any>({
+        fetchFilterByCode: build.query<IBorderCountries[],any>({
             query: (codes) => ({
                 url: `/alpha?codes=${codes}`
             })

@@ -10,6 +10,7 @@
 	--text-color: hsl(200, 15%, 8%);
 	--colors-ui-base: hsl(0, 36%, 95%);
 	--shadow: rgba(6, 7, 8, 0.2) 0px 8px 24px;
+	--hover-shadow:rgba(68, 75, 82, 0.2) 0px 8px 24px;
 }
 
 :root[data-theme="dark"] {
@@ -17,6 +18,7 @@
 	--text-color: hsl(0, 0%, 100%);
 	--colors-ui-base: hsl(209, 23%, 22%);
 	--shadow: rgba(245, 245, 245, 0.2) 0 0 8px;
+	--hover-shadow:rgba(38, 43, 48, 0.2) 0px 8px 24px;
 }
 body {
 	background: var(--background-color);

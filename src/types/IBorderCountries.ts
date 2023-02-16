@@ -1,3 +1,3 @@
-export interface IBorderCountrieststs {
+export interface IBorderCountries {
     name:string;
 }
