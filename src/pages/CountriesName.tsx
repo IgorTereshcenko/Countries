@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react'
 import { countriesAPI } from '../services/CountriesService';
 import { useNavigate, useParams } from 'react-router-dom';
 import CountriesNameList from '../components/CountriesNameList';
-import '../style/countries.scss';
+import '../style/countriesName.scss';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
@@ -32,7 +32,7 @@ const CountriesName:FC = () => {
     return (
         <div className='countriesName'>
             <div className="container">
-            <button onClick={() => navigate('/')} className='countries__back'> <span>&#8592;</span> Back</button>
+            <button onClick={() => navigate('/')} className='countriesName__back'> <span>&#8592;</span> Back</button>
                 <CountriesNameList
                     country={country}
                     borderCountry={borderCountry}/>
