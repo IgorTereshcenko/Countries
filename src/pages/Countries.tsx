@@ -3,6 +3,8 @@ import CountriesList from '../components/CountriesList';
 import { countriesAPI } from '../services/CountriesService';
 import SearchAndFilter from '../components/SearchAndFilter';
 import { useCountries } from '../hooks/useCountries';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const Countries:FC = () => {
 
@@ -13,9 +15,9 @@ const Countries:FC = () => {
     const sortedAndSearhCountries = useCountries(countries,sortValue,searchValue);
     
     if(isLoading) {
-        return <h1>loading</h1>
+        return <Loading/>
     } else if (error) {
-        return <h1>error</h1>
+        return <Error/>
     }
 
     return (

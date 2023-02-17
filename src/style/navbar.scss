@@ -12,9 +12,16 @@
     }
     &__theme {
         cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         background: inherit;
         font-size: 14px;
         font-weight: 600;
         color:var(--text-color);
+        img {
+            width: 30px;
+            height: 30px;
+        }
     }
 }

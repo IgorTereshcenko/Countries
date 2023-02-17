@@ -1,12 +1,9 @@
+import { ICountries } from "./ICountries";
 
-export interface ICountry {
+export interface ICountry extends ICountries {
     flag: string;
-    name: string;
     nativeName: string;
-    population: number;
-    region: string;
     subregion: string;
-    capital: string;
     topLevelDomain: string[];
     currencies: [{name:string}];
     languages: [{name:string}];

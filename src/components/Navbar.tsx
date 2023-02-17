@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { set } from '../store/slices/themeSlice';
 import '../style/navbar.scss';
+import sun from '../resurses/sun.svg';
+import moon from '../resurses/moon.svg';
 
-const Navbar = () => {
+const Navbar:FC = () => {
 
     const {theme} = useAppSelector(state => state.themeReducer);
     const dispatch = useAppDispatch();
@@ -24,7 +26,10 @@ const Navbar = () => {
             <div className="navbar__title">Where in the world?</div>
             <button 
                 onClick={handleChange} 
-                className='navbar__theme'>{theme === 'dark' ? 'White Mode' : 'Dark Mode'}</button>
+                className='navbar__theme'>
+                <img src={theme === 'dark' ? sun : moon} alt="sun and moon" />
+                {theme === 'dark' ? 'White Mode' : 'Dark Mode'}
+            </button>
         </div>
     )
 }

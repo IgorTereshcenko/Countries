@@ -9,7 +9,7 @@ export const countriesAPI = createApi({
     endpoints: (build) => ({
         fetchAllCountries: build.query<ICountries[],any>({
             query: () => ({
-                url: '/all'
+                url: '/all?fields=name,capital,flags,population,region'
             })
         }),
         fetchNameCountries: build.query<ICountry[],any>({

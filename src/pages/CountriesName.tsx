@@ -3,6 +3,8 @@ import { countriesAPI } from '../services/CountriesService';
 import { useNavigate, useParams } from 'react-router-dom';
 import CountriesNameList from '../components/CountriesNameList';
 import '../style/countries.scss';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const CountriesName:FC = () => {
 
@@ -22,9 +24,9 @@ const CountriesName:FC = () => {
     },[country])
     
     if(isLoading) {
-        return <h1>loading</h1>
+        return <Loading/>
     } else if (error) {
-        return <h1>error</h1>
+        return <Error/>
     }
 
     return (
